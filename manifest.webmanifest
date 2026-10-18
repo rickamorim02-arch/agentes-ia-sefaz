@@ -1,0 +1,16 @@
+{
+  "name": "Agentes IA — SEFAZ-AL",
+  "short_name": "Agentes IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f3fc",
+  "theme_color": "#332174",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
