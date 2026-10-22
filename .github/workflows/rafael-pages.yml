@@ -1,0 +1,31 @@
+name: Publish Rafael Lab to GitHub Pages
+on:
+  push:
+    branches: [experimental/rafael-colega-estudos]
+    paths:
+      - 'rafael-lab/**'
+      - '.github/workflows/rafael-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: rafael-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: experimental/rafael-colega-estudos
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: rafael-lab
+      - id: deployment
+        uses: actions/deploy-pages@v4
